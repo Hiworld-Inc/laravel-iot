@@ -172,6 +172,7 @@ class CtwingProvider implements IotProviderInterface
             'version' => '',
             'headers' => '',
             'contentType' => 'application/json',
+            'method' => 'POST',
         ], $options);
 
         $response = AepSdkCore::sendSDkRequest(
@@ -182,7 +183,7 @@ class CtwingProvider implements IotProviderInterface
             $options['version'],
             $this->appKey,
             $this->secret,
-            'POST'
+            strtoupper($options['method'])
         );
 
         return json_decode($response, true) ?? [];
