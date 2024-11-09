@@ -178,7 +178,7 @@ class CtwingProvider implements IotProviderInterface
             $options['path'],
             $options['headers'],
             $options['params'],
-            json_encode($command),
+            $command ? json_encode($command) : null,
             $options['version'],
             $this->appKey,
             $this->secret,
